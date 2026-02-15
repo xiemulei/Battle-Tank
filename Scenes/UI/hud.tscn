@@ -36,6 +36,10 @@ size_flags_horizontal = 0
 layout_mode = 2
 text = "Killed: 0"
 
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer" unique_id=888888001]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=1031850857]
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
@@ -43,6 +47,8 @@ size_flags_horizontal = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer2" unique_id=486142113]
 layout_mode = 2
+alignment = 1
+size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer2/HBoxContainer" unique_id=198327783]
 layout_mode = 2
