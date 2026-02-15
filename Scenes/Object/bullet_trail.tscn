@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://caqhabsaapwdm"]
+
+[ext_resource type="Script" uid="uid://b27yifc4wodvr" path="res://Scenes/Object/bullet_trail.gd" id="1_0xybj"]
+
+[sub_resource type="Curve" id="Curve_ev7os"]
+
+[sub_resource type="Gradient" id="Gradient_0xybj"]
+offsets = PackedFloat32Array(0.0035046728, 1)
+
+[node name="BulletTrail" type="Line2D" unique_id=1109145603]
+width_curve = SubResource("Curve_ev7os")
+gradient = SubResource("Gradient_0xybj")
+script = ExtResource("1_0xybj")

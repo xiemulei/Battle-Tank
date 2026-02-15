@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bodljis2sdsp4"]
+
+[ext_resource type="Script" uid="uid://dw15ukhvyj7no" path="res://Scenes/Object/bullet_base.gd" id="1_t0hmr"]
+[ext_resource type="Texture2D" uid="uid://bhpw4imk00b4p" path="res://assets/enemy/bulletSand2.png" id="1_txvad"]
+[ext_resource type="PackedScene" uid="uid://ms1t2i88e5w0" path="res://Scenes/components/hit_box_component.tscn" id="2_xtgdy"]
+[ext_resource type="PackedScene" uid="uid://caqhabsaapwdm" path="res://Scenes/Object/bullet_trail.tscn" id="3_xtgdy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_na6ux"]
+radius = 4.0
+height = 12.0
+
+[node name="Bullet" type="Node2D" unique_id=243783296]
+script = ExtResource("1_t0hmr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=520246120]
+rotation = 1.5707964
+texture = ExtResource("1_txvad")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2062329700]
+
+[node name="HitBoxComponent" parent="." unique_id=1797736353 instance=ExtResource("2_xtgdy")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" unique_id=2042443405]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_na6ux")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1238881668]
+
+[node name="BulletTrail" parent="Node2D" unique_id=1109145603 instance=ExtResource("3_xtgdy")]

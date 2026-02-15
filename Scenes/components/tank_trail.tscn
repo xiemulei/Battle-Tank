@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bomxrhsgw8o2q"]
+
+[ext_resource type="Texture2D" uid="uid://4n30njq8xd0i" path="res://assets/VFX/tracksLarge.png" id="1_5d6o3"]
+[ext_resource type="Script" uid="uid://uya2pig60tqw" path="res://Scenes/components/tank_trail.gd" id="2_hjn43"]
+
+[node name="TankTrail" type="Sprite2D" unique_id=953957535]
+texture = ExtResource("1_5d6o3")
+script = ExtResource("2_hjn43")

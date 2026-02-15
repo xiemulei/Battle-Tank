@@ -1,6 +1,35 @@
 [gd_scene format=3 uid="uid://cb656hnl7mta0"]
 
 [ext_resource type="Script" uid="uid://dvgq0gunqq2yo" path="res://Scenes/UI/hud.gd" id="1_sprlj"]
+[ext_resource type="StyleBox" uid="uid://finnnwsno813" path="res://Scenes/UI/panel.tres" id="2_fdl0h"]
+[ext_resource type="FontFile" uid="uid://b07ire2uexqdu" path="res://assets/font/Rockboxcond12.ttf" id="3_8glcj"]
+[ext_resource type="LabelSettings" uid="uid://4neq5mqcr4ay" path="res://Scenes/UI/font35.tres" id="3_fdl0h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdl0h"]
+bg_color = Color(0.506973, 0.621447, 0.718393, 1)
+border_width_left = 3
+border_width_top = 8
+border_width_right = 6
+border_width_bottom = 3
+border_color = Color(0.26607, 0.355968, 0.431198, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8glcj"]
+bg_color = Color(0.791188, 0.0222957, 0.0216878, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 12
+border_color = Color(0.332012, 0.00300747, 0.00299258, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="HUD" type="Control" unique_id=631673634]
 layout_mode = 3
@@ -31,10 +60,12 @@ size_flags_vertical = 0
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_styles/panel = ExtResource("2_fdl0h")
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer" unique_id=2061664071]
 layout_mode = 2
 text = "Killed: 0"
+label_settings = ExtResource("3_fdl0h")
 
 [node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer" unique_id=888888001]
 layout_mode = 2
@@ -44,19 +75,23 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 size_flags_horizontal = 8
+theme_override_styles/panel = ExtResource("2_fdl0h")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer2" unique_id=486142113]
 layout_mode = 2
-alignment = 1
 size_flags_vertical = 4
+alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer2/HBoxContainer" unique_id=198327783]
 layout_mode = 2
 text = "Health:"
+label_settings = ExtResource("3_fdl0h")
 
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/PanelContainer2/HBoxContainer" unique_id=1342218660]
 custom_minimum_size = Vector2(400, 20)
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_fdl0h")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8glcj")
 step = 1.0
 value = 100.0
 
@@ -66,10 +101,22 @@ custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("2_fdl0h")
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer3" unique_id=916415615]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer3" unique_id=973298538]
 layout_mode = 2
-text = "You Win"
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer3/VBoxContainer" unique_id=916415615]
+layout_mode = 2
+text = "You Win!"
+label_settings = ExtResource("3_fdl0h")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/PanelContainer3/VBoxContainer" unique_id=22449667]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8glcj")
+theme_override_font_sizes/font_size = 30
+text = "Continue"
 
 [node name="Timer" type="Timer" parent="." unique_id=2136272204]
 one_shot = true

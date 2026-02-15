@@ -5,26 +5,30 @@ extends Control
 @onready var timer: Timer = $Timer
 @onready var panel_container_3: PanelContainer = $MarginContainer/PanelContainer3
 @onready var result: Label = $MarginContainer/PanelContainer3/Label
+@onready var button: Button = $MarginContainer/PanelContainer3/VBoxContainer/Button
 
 
 func _ready() -> void:
-	Gamemanager.enemy_killed.connect(on_enemy_killed)
+	Gamemanager.update_score_ui.connect(on_update_score_ui)
 	Gamemanager.update_health_ui.connect(on_update_health_ui)
 	Gamemanager.player_killed.connect(on_player_killed)
 	Gamemanager.player_win.connect(on_player_win)
+	button.pressed.connect(Gamemanager.restart)
+	on_update_score_ui(Gamemanager.score, Gamemanager.total_enemy_size)
 
 func on_enemy_killed(_pos):
 	label.text = "Killed: %s" %str(Gamemanager.score)
 
-func on_update_health_ui(health: int):
-	@warning_ignore("integer_division")
-	var value = 100 * health / 10
+func on_update_score_ui(score, total):
+	label.text = "Killed: %s/%s" %[str(score), str(total)]
+
+func on_update_health_ui(value: float):
 	progress_bar.value = value
 	
 func on_player_killed():
 	timer.start()
 	await  timer.timeout
-	result.text = "You Lose"
+	result.text = "You Lost"
 	panel_container_3.show()
 
 func on_player_win():

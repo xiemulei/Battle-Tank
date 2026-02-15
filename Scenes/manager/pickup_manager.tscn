@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c1klh4udsby6r"]
+
+[ext_resource type="Script" uid="uid://de77end3qlbg0" path="res://Scenes/manager/pickup_manager.gd" id="1_clmsn"]
+[ext_resource type="PackedScene" uid="uid://2ccr076r4sun" path="res://Scenes/Object/pick_up_gun.tscn" id="2_w5st5"]
+[ext_resource type="PackedScene" uid="uid://dn2ipvrnvx2li" path="res://Scenes/Object/pick_up_health.tscn" id="3_kxchr"]
+
+[node name="PickupManager" type="Node" unique_id=2019116312]
+script = ExtResource("1_clmsn")
+gun_pickup_scene = ExtResource("2_w5st5")
+health_pickup_scene = ExtResource("3_kxchr")

@@ -1,9 +1,9 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://db8rqng208wte"]
+[gd_resource type="TileSet" format=3 uid="uid://db8rqng208wte"]
 
-[ext_resource type="Texture2D" uid="uid://pmkt6o675oav" path="res://assets/map/terrainTiles_default.png" id="1_4x7j3"]
-[ext_resource type="Texture2D" uid="uid://4whbpj5xpj7a" path="res://assets/item/treeGreen_large.png" id="2_rwbt8"]
-[ext_resource type="Texture2D" uid="uid://crwg1sis8h7o7" path="res://assets/map/stone.png" id="2_x3ea7"]
-[ext_resource type="Texture2D" uid="uid://crg0f6yhguvip" path="res://assets/item/treeBrown_large.png" id="4_fh3ld"]
+[ext_resource type="Texture2D" uid="uid://csuhisd34uimb" path="res://assets/map/terrainTiles_default.png" id="1_4x7j3"]
+[ext_resource type="Texture2D" uid="uid://keh7vqb56360" path="res://assets/item/treeGreen_large.png" id="2_rwbt8"]
+[ext_resource type="Texture2D" uid="uid://b165hyr4ny0yb" path="res://assets/map/stone.png" id="2_x3ea7"]
+[ext_resource type="Texture2D" uid="uid://dc4tio32f8qji" path="res://assets/item/treeBrown_large.png" id="4_fh3ld"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wpk8a"]
 texture = ExtResource("1_4x7j3")
