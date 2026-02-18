@@ -10,12 +10,12 @@ signal get_pickup(pos: Vector2, pickup_type: Pickups)
 func _ready() -> void:
 	body_entered.connect(on_body_entered)
 	
-func on_body_entered(body: Node2D):
+func on_body_entered(body: Player):
 	if body.is_in_group("Player"):
 		if pickup_type == Pickups.GUN:
-			body.update_weapon()
+			body.upgrade_weapon()
 		elif pickup_type == Pickups.HEALTH:
-			body.update_health()
+			body.upgrade_health()
 		animation_player.play("pickup")
 		await animation_player.animation_finished
 		queue_free()

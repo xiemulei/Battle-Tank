@@ -81,6 +81,7 @@ shape = SubResource("CircleShape2D_52c16")
 [node name="TrailComponent" parent="." unique_id=1878480963 instance=ExtResource("7_kt61n")]
 
 [node name="HurtBoxComponent" parent="." unique_id=1715346458 instance=ExtResource("7_tujxv")]
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent" unique_id=1205768103]
 shape = SubResource("CircleShape2D_80lxe")

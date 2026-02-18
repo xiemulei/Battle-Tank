@@ -41,6 +41,12 @@ func on_died():
 	hide()
 	hurt_box_component.set_deferred("monitorable", false)
 
+func upgrade_weapon():
+	weapon_component.upgrade(0.1)
+
+func upgrade_health():
+	health_component.upgrade(1)
+
 func on_player_win():
 	set_physics_process(false)
 

@@ -8,7 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://ctps0mu05gcuo" path="res://assets/sound/engine.ogg" id="6_xxarj"]
 [ext_resource type="PackedScene" uid="uid://h666l70mxpla" path="res://Scenes/components/weapon_component.tscn" id="7_t3oqc"]
 [ext_resource type="PackedScene" uid="uid://dmycqa5kh8jcr" path="res://Scenes/components/trail_component.tscn" id="8_p8lfk"]
-[ext_resource type="PackedScene" uid="uid://gc20lkmyfa2g" path="res://Scenes/Object/player_bullet.tscn" id="8_t3oqc"]
 [ext_resource type="Texture2D" uid="uid://c7r8h0lleolrt" path="res://assets/VFX/white_glowing_circle.png" id="9_kd672"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e41v5"]
@@ -88,7 +87,6 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_6k3cy")
 
 [node name="WeaponComponent" parent="." unique_id=963348630 instance=ExtResource("7_t3oqc")]
-bullet_scene = ExtResource("8_t3oqc")
 
 [node name="TrailComponent" parent="." unique_id=1878480963 instance=ExtResource("8_p8lfk")]
 
