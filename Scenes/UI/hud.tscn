@@ -92,8 +92,9 @@ custom_minimum_size = Vector2(400, 20)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_fdl0h")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8glcj")
-step = 1.0
-value = 100.0
+max_value = 1.0
+step = 0.1
+value = 1.0
 
 [node name="PanelContainer3" type="PanelContainer" parent="MarginContainer" unique_id=1108062576]
 visible = false

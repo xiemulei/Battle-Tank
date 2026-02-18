@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b33gbg2q0hbuk" path="res://assets/tank/tankBlue_barrel3_outline.png" id="3_j65v6"]
 [ext_resource type="PackedScene" uid="uid://mxmeqt3644h1" path="res://Scenes/components/health_component.tscn" id="4_yc83e"]
 [ext_resource type="PackedScene" uid="uid://bxdatmx1sjay1" path="res://Scenes/components/detect_component.tscn" id="5_ra0qn"]
+[ext_resource type="PackedScene" uid="uid://bdjbuh6lqsawj" path="res://Scenes/Object/enemy_bullet.tscn" id="5_yc83e"]
 [ext_resource type="PackedScene" uid="uid://dmycqa5kh8jcr" path="res://Scenes/components/trail_component.tscn" id="7_kt61n"]
 [ext_resource type="PackedScene" uid="uid://cmm3vnvmo024w" path="res://Scenes/components/hurt_box_component.tscn" id="7_tujxv"]
 
@@ -66,6 +67,7 @@ script = ExtResource("1_dndp7")
 texture = ExtResource("1_kt61n")
 
 [node name="WeaponComponent" parent="." unique_id=963348630 instance=ExtResource("2_dndp7")]
+bullet_scene = ExtResource("5_yc83e")
 
 [node name="Gun" parent="WeaponComponent" index="0" unique_id=445025231]
 texture = ExtResource("3_j65v6")
@@ -74,6 +76,7 @@ texture = ExtResource("3_j65v6")
 max_health = 4.0
 
 [node name="DetectComponent" parent="." unique_id=174737966 instance=ExtResource("5_ra0qn")]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectComponent" unique_id=348649503]
 shape = SubResource("CircleShape2D_52c16")

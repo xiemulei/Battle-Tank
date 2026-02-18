@@ -16,9 +16,6 @@ func _ready() -> void:
 	button.pressed.connect(Gamemanager.restart)
 	on_update_score_ui(Gamemanager.score, Gamemanager.total_enemy_size)
 
-func on_enemy_killed(_pos):
-	label.text = "Killed: %s" %str(Gamemanager.score)
-
 func on_update_score_ui(score, total):
 	label.text = "Killed: %s/%s" %[str(score), str(total)]
 

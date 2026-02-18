@@ -22,6 +22,7 @@ func _ready() -> void:
 	health_component.health_changed.connect(on_health_changed)
 	health_component.died.connect(on_died)
 	Gamemanager.player_win.connect(on_player_win)
+	timer.timeout.connect(on_time_out)
 
 func on_get_damage(_value):
 	animation_player.play("flash")

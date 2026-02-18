@@ -19,6 +19,8 @@ texture = ExtResource("1_txvad")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2062329700]
 
 [node name="HitBoxComponent" parent="." unique_id=1797736353 instance=ExtResource("2_xtgdy")]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" unique_id=2042443405]
 rotation = -1.5707964
