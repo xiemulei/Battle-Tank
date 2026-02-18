@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://vsapqb32q1v6" path="res://assets/tank/specialBarrel3_outline.png" id="1_0qixh"]
 [ext_resource type="Script" uid="uid://duyi7wa6e3kr5" path="res://Scenes/components/weapon_component.gd" id="1_8xmhx"]
+[ext_resource type="PackedScene" uid="uid://gc20lkmyfa2g" path="res://Scenes/Object/player_bullet.tscn" id="2_k8s3b"]
 [ext_resource type="Texture2D" uid="uid://c1a5kwp62moe6" path="res://assets/VFX/shotOrange.png" id="2_skm2b"]
 [ext_resource type="AudioStream" uid="uid://d1k137kxooosv" path="res://assets/sound/shoot.wav" id="3_skm2b"]
 
@@ -107,6 +108,7 @@ _data = {
 
 [node name="WeaponComponent" type="Node2D" unique_id=963348630]
 script = ExtResource("1_8xmhx")
+bullet_scene = ExtResource("2_k8s3b")
 
 [node name="Gun" type="Sprite2D" parent="." unique_id=445025231]
 texture = ExtResource("1_0qixh")

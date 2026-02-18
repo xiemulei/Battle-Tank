@@ -4,7 +4,7 @@ extends Control
 @onready var progress_bar: ProgressBar = $MarginContainer/HBoxContainer/PanelContainer2/HBoxContainer/ProgressBar
 @onready var timer: Timer = $Timer
 @onready var panel_container_3: PanelContainer = $MarginContainer/PanelContainer3
-@onready var result: Label = $MarginContainer/PanelContainer3/Label
+@onready var result: Label = $MarginContainer/PanelContainer3/VBoxContainer/Label
 @onready var button: Button = $MarginContainer/PanelContainer3/VBoxContainer/Button
 
 

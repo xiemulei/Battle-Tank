@@ -44,6 +44,14 @@ func on_died():
 func on_player_win():
 	set_physics_process(false)
 
+func _process(_delta: float) -> void:
+	# 武器始终朝向鼠标位置
+	var target_pos = get_global_mouse_position()
+	weapon_component.target(target_pos)
+	# 检测射击输入
+	if Input.is_action_just_pressed("shoot"):
+		weapon_component.shoot(target_pos)
+
 func _physics_process(delta: float) -> void:
 	move(delta)
 	if can_shake:
@@ -63,12 +71,6 @@ func move(delta: float) -> void:
 	
 	velocity = transform.x * speed
 	move_and_slide()
-
-func _unhandled_input(event: InputEvent) -> void:
-	var target_pos = get_global_mouse_position()
-	weapon_component.target(target_pos)
-	if event.is_action_pressed("shoot"):
-		weapon_component.shoot(target_pos)
 
 func shake():
 	camera_2d.offset = Vector2(randf_range(-3, 3), randf_range(-3, 3))
