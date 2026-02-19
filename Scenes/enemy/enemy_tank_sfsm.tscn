@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://d4ganp5mcqnq4"]
+
+[ext_resource type="Shader" uid="uid://dq5udfhshhr3c" path="res://Scenes/player/flash.gdshader" id="1_x3c27"]
+[ext_resource type="Script" uid="uid://bg1em55iyqsdn" path="res://Scenes/enemy/enemy_tank_sfsm.gd" id="2_x3c27"]
+[ext_resource type="Texture2D" uid="uid://23cxawrqy6bl" path="res://assets/tank/tankBody_blue_outline.png" id="3_xhep2"]
+[ext_resource type="PackedScene" uid="uid://h666l70mxpla" path="res://Scenes/components/weapon_component.tscn" id="4_qqqdx"]
+[ext_resource type="PackedScene" uid="uid://bdjbuh6lqsawj" path="res://Scenes/Object/enemy_bullet.tscn" id="5_dihid"]
+[ext_resource type="Texture2D" uid="uid://b33gbg2q0hbuk" path="res://assets/tank/tankBlue_barrel3_outline.png" id="6_5l0ls"]
+[ext_resource type="PackedScene" uid="uid://mxmeqt3644h1" path="res://Scenes/components/health_component.tscn" id="7_uk8b4"]
+[ext_resource type="PackedScene" uid="uid://bxdatmx1sjay1" path="res://Scenes/components/detect_component.tscn" id="8_depj7"]
+[ext_resource type="PackedScene" uid="uid://dmycqa5kh8jcr" path="res://Scenes/components/trail_component.tscn" id="9_haqhq"]
+[ext_resource type="PackedScene" uid="uid://cmm3vnvmo024w" path="res://Scenes/components/hurt_box_component.tscn" id="10_nli7p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yc83e"]
+shader = ExtResource("1_x3c27")
+shader_parameter/active = true
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_52c16"]
+radius = 350.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_80lxe"]
+radius = 25.0
+
+[sub_resource type="Animation" id="Animation_dndp7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_j65v6"]
+resource_name = "flash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yc83e"]
+_data = {
+&"RESET": SubResource("Animation_dndp7"),
+&"flash": SubResource("Animation_j65v6")
+}
+
+[node name="EnemyTankSFSM" type="CharacterBody2D" unique_id=377246782 groups=["Enemy", "EnemyTank"]]
+material = SubResource("ShaderMaterial_yc83e")
+collision_layer = 64
+collision_mask = 112
+script = ExtResource("2_x3c27")
+
+[node name="Base" type="Sprite2D" parent="." unique_id=1735465695]
+texture = ExtResource("3_xhep2")
+
+[node name="WeaponComponent" parent="." unique_id=963348630 instance=ExtResource("4_qqqdx")]
+bullet_scene = ExtResource("5_dihid")
+
+[node name="Gun" parent="WeaponComponent" index="0" unique_id=445025231]
+texture = ExtResource("6_5l0ls")
+
+[node name="HealthComponent" parent="." unique_id=1451598291 instance=ExtResource("7_uk8b4")]
+max_health = 4.0
+
+[node name="DetectComponent" parent="." unique_id=174737966 instance=ExtResource("8_depj7")]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectComponent" unique_id=348649503]
+shape = SubResource("CircleShape2D_52c16")
+
+[node name="TrailComponent" parent="." unique_id=1878480963 instance=ExtResource("9_haqhq")]
+
+[node name="HurtBoxComponent" parent="." unique_id=1715346458 instance=ExtResource("10_nli7p")]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent" unique_id=1205768103]
+shape = SubResource("CircleShape2D_80lxe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1922323551]
+libraries/ = SubResource("AnimationLibrary_yc83e")
+
+[editable path="WeaponComponent"]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c6vnj2ymblnsh"]
+
+[ext_resource type="Script" uid="uid://b1tbgol5gx5u8" path="res://Scenes/enemy/state_machine.gd" id="1_dna5x"]
+
+[node name="StateMachine" type="Node" unique_id=2034542311]
+script = ExtResource("1_dna5x")

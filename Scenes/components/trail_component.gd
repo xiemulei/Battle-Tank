@@ -1,3 +1,4 @@
+class_name TrailComponent
 extends Node2D
 
 @export var trail_scene: PackedScene

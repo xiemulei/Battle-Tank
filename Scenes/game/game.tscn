@@ -2,47 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://dk14hmiuhv5iy" path="res://Scenes/game/map.tscn" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://biihvbxh372vq" path="res://Scenes/player/player.tscn" id="2_3dryh"]
-[ext_resource type="PackedScene" uid="uid://bqdjnt3wu4ua7" path="res://Scenes/enemy/enemy_tower.tscn" id="3_vjhi1"]
 [ext_resource type="PackedScene" uid="uid://cb656hnl7mta0" path="res://Scenes/UI/hud.tscn" id="4_3dryh"]
-[ext_resource type="PackedScene" uid="uid://4sx5g46guks0" path="res://Scenes/manager/enemy_manager.tscn" id="4_d0b77"]
-[ext_resource type="PackedScene" uid="uid://c1klh4udsby6r" path="res://Scenes/manager/pickup_manager.tscn" id="5_7trcl"]
 [ext_resource type="PackedScene" uid="uid://dhpo25h4obi2p" path="res://Scenes/manager/vfx_manager.tscn" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://did6lx4n3irxo" path="res://Scenes/enemy/enemy_tank.tscn" id="5_nds08"]
-
-[sub_resource type="Curve2D" id="Curve2D_u7m1m"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 4, 219, 0, 0, 0, 0, 394, 219, 0, 0, 0, 0, 415, 242, 0, 0, 0, 0, 415, 452, 0, 0, 0, 0, 444, 482, 0, 0, 0, 0, 894, 480, 0, 0, 0, 0, 927, 453, 0, 0, 0, 0, 925, 369, 0, 0, 0, 0, 950, 351, 0, 0, 0, 0, 1482, 350, 0, 0, 0, 0, 1506, 327, 0, 0, 0, 0, 1531, 286, 0, 0, 0, 0, 2313, 286, 0, 0, 0, 0, 2332, 268, 0, 0, 0, 0, 2335, -58)
-}
-point_count = 15
-
-[sub_resource type="Curve2D" id="Curve2D_vjhi1"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 414, -50, 0, 0, 0, 0, 415, 449, 0, 0, 0, 0, 451, 480, 0, 0, 0, 0, 522, 479, 0, 0, 0, 0, 542, 500, 0, 0, 0, 0, 543, 585, 0, 0, 0, 0, 510, 608, 0, 0, 0, 0, 478, 636, 0, 0, 0, 0, 481, 1219, 0, 0, 0, 0, 508, 1249, 0, 0, 0, 0, 1181, 1246, 0, 0, 0, 0, 2247, 1246, 0, 0, 0, 0, 2272, 1214, 0, 0, 0, 0, 2272, 821, 0, 0, 0, 0, 2292, 801, 0, 0, 0, 0, 2435, 795, 0, 0, 0, 0, 2461, 781, 0, 0, 0, 0, 2461, 313, 0, 0, 0, 0, 2431, 286, 0, 0, 0, 0, 2370, 286)
-}
-point_count = 20
-
-[sub_resource type="Curve2D" id="Curve2D_g0siu"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1183, 1211, 0, 0, 0, 0, 1183, 1014, 0, 0, 0, 0, 1138, 991, 0, 0, 0, 0, 831, 989, 0, 0, 0, 0, 800, 956, 0, 0, 0, 0, 798, 501, 0, 0, 0, 0, 822, 476, 0, 0, 0, 0, 895, 478, 0, 0, 0, 0, 926, 458, 0, 0, 0, 0, 926, 381, 0, 0, 0, 0, 949, 350, 0, 0, 0, 0, 1103, 350, 0, 0, 0, 0, 1121, 368, 0, 0, 0, 0, 1119, 962)
-}
-point_count = 14
-
-[sub_resource type="Curve2D" id="Curve2D_7pssd"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 474, 90, 0, 0, 0, 0, 883, 92, 0, 0, 0, 0, 924, 115, 0, 0, 0, 0, 926, 329, 0, 0, 0, 0, 955, 352, 0, 0, 0, 0, 1466, 348, 0, 0, 0, 0, 1507, 387, 0, 0, 0, 0, 1499, 713, 0, 0, 0, 0, 1540, 731, 0, 0, 0, 0, 1663, 731, 0, 0, 0, 0, 1692, 765, 0, 0, 0, 0, 1729, 800, 0, 0, 0, 0, 2271, 800, 0, 0, 0, 0, 2433, 792)
-}
-point_count = 14
 
 [node name="Game" type="Node2D" unique_id=54073917]
 
 [node name="VFXManager" parent="." unique_id=1324291216 instance=ExtResource("5_i6g32")]
-
-[node name="EnemyManager" parent="." unique_id=455659908 node_paths=PackedStringArray("path_holder", "enemies_holder") instance=ExtResource("4_d0b77")]
-enemy_tank_scene = ExtResource("5_nds08")
-path_holder = NodePath("../Path")
-enemies_holder = NodePath("../Enemies")
-
-[node name="PickupManager" parent="." unique_id=2019116312 instance=ExtResource("5_7trcl")]
 
 [node name="Map" parent="." unique_id=1846740082 instance=ExtResource("1_wrm1d")]
 
@@ -51,35 +17,24 @@ position = Vector2(1359, 528)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1022295085]
 
-[node name="EnemyTower" parent="Enemies" unique_id=822312792 instance=ExtResource("3_vjhi1")]
-position = Vector2(259, 127)
-
-[node name="EnemyTower2" parent="Enemies" unique_id=791378753 instance=ExtResource("3_vjhi1")]
-position = Vector2(280, 695)
-
-[node name="EnemyTower3" parent="Enemies" unique_id=1263327885 instance=ExtResource("3_vjhi1")]
-position = Vector2(928, 1075)
-
-[node name="EnemyTower4" parent="Enemies" unique_id=2083967028 instance=ExtResource("3_vjhi1")]
-position = Vector2(2262, 27)
-
-[node name="EnemyTower5" parent="Enemies" unique_id=1413778104 instance=ExtResource("3_vjhi1")]
-position = Vector2(2058, 631)
-
-[node name="Path" type="Node2D" parent="." unique_id=579686156]
-
-[node name="Path2D1" type="Path2D" parent="Path" unique_id=446692356]
-curve = SubResource("Curve2D_u7m1m")
-
-[node name="Path2D2" type="Path2D" parent="Path" unique_id=528088014]
-curve = SubResource("Curve2D_vjhi1")
-
-[node name="Path2D3" type="Path2D" parent="Path" unique_id=1158897231]
-curve = SubResource("Curve2D_g0siu")
-
-[node name="Path2D4" type="Path2D" parent="Path" unique_id=244278545]
-curve = SubResource("Curve2D_7pssd")
+[node name="EnemyTank" parent="Enemies" unique_id=1137593794 node_paths=PackedStringArray("points") instance=ExtResource("5_nds08")]
+position = Vector2(1621, 293)
+points = NodePath("../../Points")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1264046463]
 
 [node name="HUD" parent="CanvasLayer" unique_id=631673634 instance=ExtResource("4_3dryh")]
+
+[node name="Points" type="Node2D" parent="." unique_id=1909502906]
+
+[node name="Marker2D" type="Marker2D" parent="Points" unique_id=1632175040]
+position = Vector2(1511, 295)
+
+[node name="Marker2D2" type="Marker2D" parent="Points" unique_id=1855711863]
+position = Vector2(1513, 728)
+
+[node name="Marker2D3" type="Marker2D" parent="Points" unique_id=692696117]
+position = Vector2(2459, 788)
+
+[node name="Marker2D4" type="Marker2D" parent="Points" unique_id=1604597018]
+position = Vector2(2453, 299)
