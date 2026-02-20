@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cmnd3rdbensq2"]
+
+[ext_resource type="Texture2D" uid="uid://d2nqa21nvflb8" path="res://assets/enemy/towerDefense_tile204.png" id="1_ruy3b"]
+[ext_resource type="Script" uid="uid://d2hlurtvlqlxl" path="res://Scenes/components/mis_launch_component.gd" id="1_s8ghq"]
+[ext_resource type="AudioStream" uid="uid://bs7c2ldq7lfy4" path="res://assets/sound/rocket.ogg" id="2_s8ghq"]
+
+[node name="MisLaunchComponent" type="Node2D" unique_id=33964307]
+script = ExtResource("1_s8ghq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=349160352]
+texture = ExtResource("1_ruy3b")
+
+[node name="Marker2D1" type="Marker2D" parent="Sprite2D" unique_id=186933262]
+position = Vector2(46, 9)
+
+[node name="Marker2D2" type="Marker2D" parent="Sprite2D" unique_id=482242125]
+position = Vector2(46, -9)
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=1129336017]
+stream = ExtResource("2_s8ghq")
+volume_db = -10.0
+
+[node name="Timer" type="Timer" parent="." unique_id=694157281]

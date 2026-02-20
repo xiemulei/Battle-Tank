@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://rddfj3hypkq2"]
+
+[ext_resource type="Script" uid="uid://c2oekvdd5f1bj" path="res://Scenes/enemy/enemy_wander.gd" id="1_niqu0"]
+
+[node name="EnemyWander" type="Node" unique_id=523067653]
+script = ExtResource("1_niqu0")
+metadata/_custom_type_script = "uid://cwk46y31tcysx"
+
+[node name="Timer" type="Timer" parent="." unique_id=1440894330]

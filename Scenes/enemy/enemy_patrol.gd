@@ -1,7 +1,7 @@
 extends State
 
-@export var enemy: EnemyTank
-@export var detect_component: DetectComponent
+@export var enemy: Node2D
+@export var search_component: Node2D
 
 var points_array: Array
 var target_pos: Vector2
@@ -28,7 +28,7 @@ func physics_update(_delta: float) -> void:
 	enemy.move()
 	if near_point():
 		find_next_point()
-	if detect_component.find_player():
+	if search_component.can_see_player():
 		transitioned.emit(self, "EnemyAttack")
 
 func near_point():

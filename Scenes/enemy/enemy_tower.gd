@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 	find_player()
 	
 func find_player():
-	var player_pos = detect_component.get_player_pos()
-	if player_pos:
-		weapon_component.target(player_pos)
-		weapon_component.shoot(player_pos)
+	if detect_component.can_see_player():
+		var target_pos = detect_component.player_ref.global_position
+		weapon_component.target(target_pos)
+		weapon_component.shoot(target_pos)

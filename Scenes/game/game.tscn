@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dk14hmiuhv5iy" path="res://Scenes/game/map.tscn" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://biihvbxh372vq" path="res://Scenes/player/player.tscn" id="2_3dryh"]
 [ext_resource type="PackedScene" uid="uid://cb656hnl7mta0" path="res://Scenes/UI/hud.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://c8jqxgrn78b52" path="res://Scenes/enemy/enemy_mis_vehicle.tscn" id="5_d0b77"]
 [ext_resource type="PackedScene" uid="uid://dhpo25h4obi2p" path="res://Scenes/manager/vfx_manager.tscn" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://did6lx4n3irxo" path="res://Scenes/enemy/enemy_tank.tscn" id="5_nds08"]
 
@@ -18,7 +19,11 @@ position = Vector2(1359, 528)
 [node name="Enemies" type="Node2D" parent="." unique_id=1022295085]
 
 [node name="EnemyTank" parent="Enemies" unique_id=1137593794 node_paths=PackedStringArray("points") instance=ExtResource("5_nds08")]
-position = Vector2(1621, 293)
+position = Vector2(2316, 283)
+points = NodePath("../../Points")
+
+[node name="EnemyMisVehicle" parent="Enemies" unique_id=1559705068 node_paths=PackedStringArray("points") instance=ExtResource("5_d0b77")]
+position = Vector2(2467, 637)
 points = NodePath("../../Points")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1264046463]

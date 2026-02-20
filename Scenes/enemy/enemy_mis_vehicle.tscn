@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://c8jqxgrn78b52"]
+
+[ext_resource type="Script" uid="uid://c7fsltol4tenh" path="res://Scenes/enemy/enemy_mis_vehicle.gd" id="1_ciso0"]
+[ext_resource type="Texture2D" uid="uid://bdv5s7m5xego2" path="res://assets/tank/tankBody_darkLarge_outline.png" id="1_tean8"]
+[ext_resource type="PackedScene" uid="uid://cmnd3rdbensq2" path="res://Scenes/components/mis_launch_component.tscn" id="2_ciso0"]
+[ext_resource type="Material" uid="uid://d4imvmki7kbld" path="res://Scenes/player/flash.tres" id="2_llnbk"]
+[ext_resource type="PackedScene" uid="uid://dv2d7nfo8hlb4" path="res://Scenes/Object/enemy_missile.tscn" id="3_llnbk"]
+[ext_resource type="PackedScene" uid="uid://cmm3vnvmo024w" path="res://Scenes/components/hurt_box_component.tscn" id="4_klha5"]
+[ext_resource type="PackedScene" uid="uid://bxdatmx1sjay1" path="res://Scenes/components/detect_component.tscn" id="5_miqdp"]
+[ext_resource type="PackedScene" uid="uid://biads0oe6unmq" path="res://Scenes/components/avoid_component.tscn" id="6_oepsf"]
+[ext_resource type="PackedScene" uid="uid://mxmeqt3644h1" path="res://Scenes/components/health_component.tscn" id="7_5ykc7"]
+[ext_resource type="PackedScene" uid="uid://dmycqa5kh8jcr" path="res://Scenes/components/trail_component.tscn" id="8_5eobh"]
+[ext_resource type="PackedScene" uid="uid://c6vnj2ymblnsh" path="res://Scenes/enemy/state_machine.tscn" id="9_epdtr"]
+[ext_resource type="PackedScene" uid="uid://cpraio3gkn03n" path="res://Scenes/enemy/enemy_patrol.tscn" id="10_54ilr"]
+[ext_resource type="PackedScene" uid="uid://rddfj3hypkq2" path="res://Scenes/enemy/enemy_wander.tscn" id="11_5idi4"]
+[ext_resource type="PackedScene" uid="uid://dasd3wakarr0x" path="res://Scenes/enemy/enemy_attack.tscn" id="12_5fe6m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wmn8t"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7sggx"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2d0kk"]
+radius = 400.0
+
+[sub_resource type="Animation" id="Animation_klha5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:use_parent_material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_miqdp"]
+resource_name = "flash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:use_parent_material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oepsf"]
+_data = {
+&"RESET": SubResource("Animation_klha5"),
+&"flash": SubResource("Animation_miqdp")
+}
+
+[node name="EnemyMisVehicle" type="CharacterBody2D" unique_id=1559705068 groups=["Enemy", "EnemyMissile"]]
+material = ExtResource("2_llnbk")
+use_parent_material = true
+collision_layer = 64
+collision_mask = 112
+script = ExtResource("1_ciso0")
+
+[node name="Base" type="Sprite2D" parent="." unique_id=421312159]
+texture = ExtResource("1_tean8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=657489185]
+shape = SubResource("CircleShape2D_wmn8t")
+
+[node name="MisLaunchComponent" parent="." unique_id=33964307 instance=ExtResource("2_ciso0")]
+cool_down = 2.0
+missile_scene = ExtResource("3_llnbk")
+
+[node name="HurtBoxComponent" parent="." unique_id=1715346458 instance=ExtResource("4_klha5")]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent" unique_id=767645621]
+shape = SubResource("CircleShape2D_7sggx")
+
+[node name="DetectComponent" parent="." unique_id=174737966 instance=ExtResource("5_miqdp")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectComponent" unique_id=1110770731]
+material = ExtResource("2_llnbk")
+use_parent_material = true
+shape = SubResource("CircleShape2D_2d0kk")
+
+[node name="AvoidComponent" parent="." unique_id=491454486 instance=ExtResource("6_oepsf")]
+
+[node name="HealthComponent" parent="." unique_id=1451598291 instance=ExtResource("7_5ykc7")]
+
+[node name="TrailComponent" parent="." unique_id=1878480963 instance=ExtResource("8_5eobh")]
+
+[node name="StateMachine" parent="." unique_id=2034542311 node_paths=PackedStringArray("initial_state") instance=ExtResource("9_epdtr")]
+initial_state = NodePath("EnemyPatrol")
+
+[node name="EnemyPatrol" parent="StateMachine" unique_id=523067653 node_paths=PackedStringArray("enemy", "search_component") instance=ExtResource("10_54ilr")]
+enemy = NodePath("../..")
+search_component = NodePath("../../DetectComponent")
+
+[node name="EnemyWander" parent="StateMachine" unique_id=346653257 node_paths=PackedStringArray("enemy", "search_component") instance=ExtResource("11_5idi4")]
+enemy = NodePath("../..")
+search_component = NodePath("../../DetectComponent")
+
+[node name="EnemyAttack" parent="StateMachine" unique_id=434559192 node_paths=PackedStringArray("enemy", "search_component", "weapon_component") instance=ExtResource("12_5fe6m")]
+enemy = NodePath("../..")
+search_component = NodePath("../../DetectComponent")
+weapon_component = NodePath("../../MisLaunchComponent")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=989786698]
+libraries/ = SubResource("AnimationLibrary_oepsf")

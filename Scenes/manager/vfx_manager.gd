@@ -13,6 +13,8 @@ func _ready() -> void:
 func on_entity_died(pos: Vector2, groups: Array):
 	if "Enemy" in groups:
 		explode(pos, "regular_exp")
+	elif "EnemyMissile" in groups:
+		explode(pos, "explosion")
 	elif "Player" in groups:
 		explode(pos, "sonic_exp")
 
@@ -21,11 +23,11 @@ func on_bullet_hit(pos: Vector2):
 	hit_sound.global_position = pos
 	hit_sound.play()
 	
-func explode(pos: Vector2, name: String):
+func explode(pos: Vector2, anim_name: String):
 	var exp_anim = exp_anim_scene.instantiate()
 	exp_anim.global_position = pos
 	add_child(exp_anim)
-	exp_anim.play(name)
+	exp_anim.play(anim_name)
 	exp_sound.global_position = pos
 	exp_sound.play()
 	await  exp_anim.animation_finished

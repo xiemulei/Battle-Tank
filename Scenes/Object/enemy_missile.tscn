@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dv2d7nfo8hlb4"]
+
+[ext_resource type="PackedScene" uid="uid://bodljis2sdsp4" path="res://Scenes/Object/bullet_base.tscn" id="1_h1qbv"]
+[ext_resource type="Script" uid="uid://dv353jgxl0f0s" path="res://Scenes/Object/enemy_missile.gd" id="2_e0ua0"]
+[ext_resource type="Texture2D" uid="uid://cmk7hfpfyu6xn" path="res://assets/enemy/towerDefense_tile251.png" id="2_ojt4c"]
+[ext_resource type="Script" uid="uid://d2egyifjm44rb" path="res://Scenes/components/detect_component.gd" id="3_h326m"]
+[ext_resource type="PackedScene" uid="uid://cmm3vnvmo024w" path="res://Scenes/components/hurt_box_component.tscn" id="4_m4wsc"]
+[ext_resource type="PackedScene" uid="uid://mxmeqt3644h1" path="res://Scenes/components/health_component.tscn" id="5_e0ua0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m4wsc"]
+radius = 100.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6xgd6"]
+radius = 5.0
+height = 36.0
+
+[node name="EnemyMissile" unique_id=243783296 groups=["EnemyMissile"] instance=ExtResource("1_h1qbv")]
+script = ExtResource("2_e0ua0")
+speed = null
+
+[node name="Sprite2D" parent="." index="0" unique_id=520246120]
+rotation = 0.0
+texture = ExtResource("2_ojt4c")
+
+[node name="HitBoxComponent" parent="." index="2" unique_id=1797736353]
+collision_mask = 2
+
+[node name="DetectComponent" type="Area2D" parent="." index="4" unique_id=840063697]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("3_h326m")
+metadata/_custom_type_script = "uid://d2egyifjm44rb"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectComponent" index="0" unique_id=2127016152]
+shape = SubResource("CircleShape2D_m4wsc")
+
+[node name="HurtBoxComponent" parent="." index="5" unique_id=1715346458 instance=ExtResource("4_m4wsc")]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent" index="0" unique_id=1094485700]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_6xgd6")
+
+[node name="HealthComponent" parent="." index="6" unique_id=1451598291 instance=ExtResource("5_e0ua0")]
+max_health = 1.0

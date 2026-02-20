@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bua7188thg7pf"]
+
+[ext_resource type="Script" uid="uid://ccw7csue5l6nw" path="res://Scenes/components/search_component.gd" id="1_2gw0h"]
+
+[node name="SearchComponent" type="RayCast2D" unique_id=171657264]
+target_position = Vector2(350, 0)
+collision_mask = 32
+script = ExtResource("1_2gw0h")
