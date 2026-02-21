@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://dxlsr8ii4wg82"]
+
+[ext_resource type="Texture2D" uid="uid://dwh2qxqp2mjju" path="res://assets/UI/tank_menu.png" id="1_nhmg3"]
+[ext_resource type="Script" uid="uid://eil5eaof5qa5" path="res://Scenes/UI/menu.gd" id="1_t1b1y"]
+[ext_resource type="FontFile" uid="uid://b07ire2uexqdu" path="res://assets/font/Rockboxcond12.ttf" id="2_wuk0b"]
+[ext_resource type="StyleBox" uid="uid://finnnwsno813" path="res://Scenes/UI/panel.tres" id="3_t1b1y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tjcm1"]
+font = ExtResource("2_wuk0b")
+font_size = 100
+font_color = Color(1, 0, 0, 1)
+
+[node name="Menu" type="Control" unique_id=368970314]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_t1b1y")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=636509274]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1240.0
+offset_bottom = 760.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nhmg3")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect" unique_id=1829663995]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -500.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer" unique_id=883664764]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer" unique_id=1851297707]
+layout_mode = 2
+text = "Battle Tanks"
+label_settings = SubResource("LabelSettings_tjcm1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="TextureRect/MarginContainer/VBoxContainer" unique_id=1708168010]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="TextureRect/MarginContainer/VBoxContainer" unique_id=1283128625]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("3_t1b1y")
+
+[node name="StartButton" type="Button" parent="TextureRect/MarginContainer/VBoxContainer/PanelContainer" unique_id=1531552877]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_wuk0b")
+theme_override_font_sizes/font_size = 30
+text = "Start Game"
+
+[node name="PanelContainer2" type="PanelContainer" parent="TextureRect/MarginContainer/VBoxContainer" unique_id=1728603187]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("3_t1b1y")
+
+[node name="QuitButton" type="Button" parent="TextureRect/MarginContainer/VBoxContainer/PanelContainer2" unique_id=474485163]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_wuk0b")
+theme_override_font_sizes/font_size = 30
+text = "Quit Game"

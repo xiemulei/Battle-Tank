@@ -5,10 +5,11 @@
 [ext_resource type="Material" uid="uid://d4imvmki7kbld" path="res://Scenes/player/flash.tres" id="1_kd672"]
 [ext_resource type="PackedScene" uid="uid://mxmeqt3644h1" path="res://Scenes/components/health_component.tscn" id="5_6k3cy"]
 [ext_resource type="PackedScene" uid="uid://cmm3vnvmo024w" path="res://Scenes/components/hurt_box_component.tscn" id="6_kd672"]
-[ext_resource type="AudioStream" uid="uid://ctps0mu05gcuo" path="res://assets/sound/engine.ogg" id="6_xxarj"]
+[ext_resource type="AudioStream" uid="uid://dcxf8faakhtmq" path="res://assets/sound/engine.ogg" id="6_xxarj"]
 [ext_resource type="PackedScene" uid="uid://h666l70mxpla" path="res://Scenes/components/weapon_component.tscn" id="7_t3oqc"]
 [ext_resource type="PackedScene" uid="uid://dmycqa5kh8jcr" path="res://Scenes/components/trail_component.tscn" id="8_p8lfk"]
 [ext_resource type="Texture2D" uid="uid://c7r8h0lleolrt" path="res://assets/VFX/white_glowing_circle.png" id="9_kd672"]
+[ext_resource type="Texture2D" uid="uid://bt4tme4fhro5o" path="res://assets/VFX/spotlight_1.png" id="10_t3oqc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e41v5"]
 size = Vector2(54, 46)
@@ -118,3 +119,11 @@ position_smoothing_enabled = true
 libraries/ = SubResource("AnimationLibrary_uawwb")
 
 [node name="Timer" type="Timer" parent="." unique_id=294349059]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1177685079]
+color = Color(0.9843137, 1, 0, 1)
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 1.0
+texture = ExtResource("10_t3oqc")
+texture_scale = 5.0

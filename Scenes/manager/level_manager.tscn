@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://1oi0ydf34yqk"]
+
+[ext_resource type="Script" uid="uid://2x0tn1r633j8" path="res://Scenes/manager/level_manager.gd" id="1_3hhxu"]
+[ext_resource type="StyleBox" uid="uid://finnnwsno813" path="res://Scenes/UI/panel.tres" id="1_xpn44"]
+[ext_resource type="FontFile" uid="uid://b07ire2uexqdu" path="res://assets/font/Rockboxcond12.ttf" id="2_28re6"]
+[ext_resource type="LabelSettings" uid="uid://4neq5mqcr4ay" path="res://Scenes/UI/font35.tres" id="3_ru6ll"]
+
+[sub_resource type="Animation" id="Animation_28re6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ru6ll"]
+resource_name = "slow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3hhxu"]
+_data = {
+&"RESET": SubResource("Animation_28re6"),
+&"slow": SubResource("Animation_ru6ll")
+}
+
+[node name="LevelManager" type="Node" unique_id=1587243390]
+process_mode = 3
+script = ExtResource("1_3hhxu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=935169873]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=254915658]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContinuePanel" type="PanelContainer" parent="CanvasLayer/Control" unique_id=1048763759]
+custom_minimum_size = Vector2(600, 170)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -170.0
+offset_right = 300.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("1_xpn44")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/ContinuePanel" unique_id=1881298124]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/Control/ContinuePanel/VBoxContainer" unique_id=735643382]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_28re6")
+bbcode_enabled = true
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/Control/ContinuePanel/VBoxContainer" unique_id=1983082266]
+visible = false
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_28re6")
+theme_override_font_sizes/font_size = 30
+text = "Continue"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/ContinuePanel/VBoxContainer" unique_id=1763045285]
+libraries/ = SubResource("AnimationLibrary_3hhxu")
+
+[node name="WinPanel" type="PanelContainer" parent="CanvasLayer/Control" unique_id=1517023729]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -75.0
+offset_right = 200.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_xpn44")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/WinPanel" unique_id=317410009]
+layout_mode = 2
+
+[node name="WinLabel" type="Label" parent="CanvasLayer/Control/WinPanel/VBoxContainer" unique_id=1210745770]
+layout_mode = 2
+size_flags_vertical = 3
+text = "You Win"
+label_settings = ExtResource("3_ru6ll")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinButton" type="Button" parent="CanvasLayer/Control/WinPanel/VBoxContainer" unique_id=1071854117]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_28re6")
+theme_override_font_sizes/font_size = 30
+text = "Next Level"
+
+[node name="LossPanel" type="PanelContainer" parent="CanvasLayer/Control" unique_id=1833103227]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -75.0
+offset_right = 200.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/LossPanel" unique_id=806544673]
+layout_mode = 2
+
+[node name="LossLabel" type="Label" parent="CanvasLayer/Control/LossPanel/VBoxContainer" unique_id=1279585916]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "You Lose"
+label_settings = ExtResource("3_ru6ll")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LossButton" type="Button" parent="CanvasLayer/Control/LossPanel/VBoxContainer" unique_id=724022318]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_28re6")
+theme_override_font_sizes/font_size = 30
+text = "Back Menu"
+
+[node name="Timer" type="Timer" parent="." unique_id=1288966780]

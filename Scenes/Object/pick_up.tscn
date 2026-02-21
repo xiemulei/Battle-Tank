@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://c7r8h0lleolrt" path="res://assets/VFX/white_glowing_circle.png" id="2_guny2"]
 [ext_resource type="AudioStream" uid="uid://b5uhi5fjiqc82" path="res://assets/sound/pickup.wav" id="2_lhbjy"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_guny2"]
+light_mode = 1
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_lhbjy"]
 radius = 15.0
 
@@ -195,6 +198,9 @@ _data = {
 &"pickup": SubResource("Animation_lhbjy")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lhbjy"]
+light_mode = 1
+
 [sub_resource type="Curve" id="Curve_ldtry"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.19718313), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -222,6 +228,7 @@ collision_mask = 32
 script = ExtResource("1_lhbjy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1111360490]
+material = SubResource("CanvasItemMaterial_guny2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=372681121]
 shape = SubResource("CircleShape2D_lhbjy")
@@ -231,6 +238,7 @@ libraries/ = SubResource("AnimationLibrary_lhbjy")
 autoplay = &"idle"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1730737796]
+material = SubResource("CanvasItemMaterial_lhbjy")
 texture = ExtResource("2_guny2")
 process_material = SubResource("ParticleProcessMaterial_6jjsu")
 

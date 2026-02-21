@@ -11,9 +11,9 @@ var died_tank: int
 var died_enemy: int
 var total_enemy_size: int
 var tower_points: Array[Vector2i]
+var wave_number: int = Gamemanager.current_level + 1
+var enemy_in_wave: int = Gamemanager.current_level + 3
 
-@export var wave_number: int = 3
-@export var enemy_in_wave: int = 8
 @export var enemy_tank_rat: float = 0.5
 @export var enemy_tower_num: int = 10
 @export var enemy_spawn_time: int = 2
@@ -24,13 +24,18 @@ var tower_points: Array[Vector2i]
 func _ready() -> void:
 	tower_points = map.get_tower_points(enemy_tower_num)
 	Gamemanager.entity_died.connect(on_entity_died)
+	Gamemanager.level_start.connect(on_level_start)
 	spawn_tower()
 	check_enemy_size()
-	spawn_waves()
 
 func on_entity_died(_pos: Vector2, groups: Array):
 	check_wave_end(groups)
 	check_killed_enemy(groups)
+
+func on_level_start():
+	wave_number = Gamemanager.current_level + 1
+	enemy_in_wave = Gamemanager.current_level + 3
+	spawn_wave()
 
 func spawn_tower():
 	for point in tower_points:
@@ -79,3 +84,9 @@ func spawn_enemy():
 	enemy.global_position = map.enemy_start_pos
 	enemy.map = map
 	enemies_holder.add_child(enemy)
+
+func get_enemy_data():
+	var data: Dictionary
+	data['wave'] = wave_number
+	data['enemy'] = total_enemy_size
+	return data

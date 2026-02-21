@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://ms1t2i88e5w0" path="res://Scenes/components/hit_box_component.tscn" id="2_xtgdy"]
 [ext_resource type="PackedScene" uid="uid://caqhabsaapwdm" path="res://Scenes/Object/bullet_trail.tscn" id="3_xtgdy"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ntx1f"]
+light_mode = 1
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_na6ux"]
 radius = 4.0
 height = 12.0
@@ -13,6 +16,7 @@ height = 12.0
 script = ExtResource("1_t0hmr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=520246120]
+material = SubResource("CanvasItemMaterial_ntx1f")
 rotation = 1.5707964
 texture = ExtResource("1_txvad")
 

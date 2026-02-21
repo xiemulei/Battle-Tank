@@ -31,6 +31,7 @@ var path_top_left: Vector2i
 var path_bottom_right: Vector2i
 var path_cell: Array[Vector2i]
 var free_cell: Array[Vector2i]
+var road_cells: Array[Vector2i]
 
 var astargrid := AStarGrid2D.new()
 var path_generator := PathGenerator.new()
@@ -106,6 +107,7 @@ func get_random_path():
 	var path_end = player_start
 	path_cell.append_array(astargrid.get_id_path(path_start, path_end))
 	road.set_cells_terrain_connect(path_cell, 0, 0)
+	road_cells.append_array(road.get_used_cells())
 
 func setup_free_cell():
 	var grass_cell = grass.get_used_cells_by_id(grass_id, nav_grass_atlas)
@@ -141,20 +143,19 @@ func setup_trees(item_num: int = 5):
 
 func get_patrol_points(patrol_num: int = 5) -> Array:
 	var patrol_points: Array
-	var road_cells = road.get_used_cells()
+	var pick_cells = road_cells
 	for i in range(patrol_num):
-		var pick_point = road_cells.pick_random()
-		road_cells.erase(pick_point)
+		var pick_point = pick_cells.pick_random()
+		pick_cells.erase(pick_point)
 		patrol_points.append(road.map_to_local(pick_point))
 	return patrol_points
 
 func get_tower_points(tower_num: int = 8, max_try: int = 100):
-	var road_cell = road.get_used_cells()
 	var tower_points: Array[Vector2i]
 	var try_count: int = 0
 	for i in range(tower_num):
 		while try_count < max_try:
-			var rand_point = road_cell.pick_random()
+			var rand_point = road_cells.pick_random()
 			var surround_cell = grass.get_surrounding_cells(rand_point)
 			var tower_point = get_surround_free_cell(surround_cell)
 			if tower_point:
@@ -172,3 +173,10 @@ func get_surround_free_cell(surround_cell: Array[Vector2i]):
 			if point.distance_to(player_start_pos) > 400:
 				return point
 	return null
+
+func is_on_road(pos: Vector2):
+	var cell = road.local_to_map(pos)
+	if cell in road_cells:
+		return true
+	else:
+		return false

@@ -63,6 +63,9 @@ _data = {
 &"flash": SubResource("Animation_j65v6")
 }
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_52c16"]
+polygon = PackedVector2Array(-18, -21, 19, -21, 19, 21, -18, 21)
+
 [node name="EnemyTank" type="CharacterBody2D" unique_id=1137593794 groups=["Enemy", "EnemyTank"]]
 material = SubResource("ShaderMaterial_yc83e")
 collision_layer = 64
@@ -120,5 +123,8 @@ path_postprocessing = 1
 avoidance_enabled = true
 radius = 40.0
 debug_enabled = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=45137664]
+occluder = SubResource("OccluderPolygon2D_52c16")
 
 [editable path="WeaponComponent"]

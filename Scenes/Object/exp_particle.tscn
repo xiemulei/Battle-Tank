@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://c7r8h0lleolrt" path="res://assets/VFX/white_glowing_circle.png" id="1_ffu6s"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8tne5"]
+light_mode = 1
+
 [sub_resource type="Curve" id="Curve_ffu6s"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6767896, 0.586514), 0.0, 0.0, 0, 0, Vector2(1, 0.20197207), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -11,6 +14,7 @@ offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.95686275, 0.8039216, 0.25490198, 1, 0.9647059, 0.8117647, 0.2509804, 1, 0.98039216, 0, 0, 1, 1, 1, 1, 0)
 
 [node name="ExpParticle" type="CPUParticles2D" unique_id=1969685063]
+material = SubResource("CanvasItemMaterial_8tne5")
 emitting = false
 amount = 12
 texture = ExtResource("1_ffu6s")

@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://did6lx4n3irxo" path="res://Scenes/enemy/enemy_tank.tscn" id="5_nds08"]
 [ext_resource type="PackedScene" uid="uid://c1klh4udsby6r" path="res://Scenes/manager/pickup_manager.tscn" id="6_nds08"]
 [ext_resource type="PackedScene" uid="uid://bqdjnt3wu4ua7" path="res://Scenes/enemy/enemy_tower.tscn" id="7_nds08"]
+[ext_resource type="PackedScene" uid="uid://1oi0ydf34yqk" path="res://Scenes/manager/level_manager.tscn" id="9_meiaf"]
+[ext_resource type="Script" uid="uid://d06dw7mbvq5qi" path="res://Scenes/game/canvas_modulate.gd" id="10_6y3i1"]
+
+[sub_resource type="Environment" id="Environment_meiaf"]
+background_mode = 3
+glow_enabled = true
 
 [node name="Game" type="Node2D" unique_id=54073917]
 
@@ -33,19 +39,31 @@ points = NodePath("../Points")
 position = Vector2(1683, 1142)
 points = NodePath("../Points")
 
-[node name="Enemies" type="Node2D" parent="." unique_id=1022295085]
+[node name="EnemyHolder" type="Node2D" parent="." unique_id=1022295085]
 
 [node name="EnemyManager" parent="." unique_id=455659908 node_paths=PackedStringArray("map", "enemies_holder") instance=ExtResource("5_7trcl")]
 enemy_tank_scene = ExtResource("5_nds08")
 enemy_mis_scene = ExtResource("5_d0b77")
 enemy_tower_scene = ExtResource("7_nds08")
 map = NodePath("../MapPCG")
-enemies_holder = NodePath("../Enemies")
+enemies_holder = NodePath("../EnemyHolder")
 
 [node name="PickupManager" parent="." unique_id=2019116312 instance=ExtResource("6_nds08")]
 
 [node name="VFXManager" parent="." unique_id=1324291216 instance=ExtResource("5_i6g32")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1264046463]
+[node name="LevelManager" parent="." unique_id=1587243390 node_paths=PackedStringArray("enemy_manager", "map") instance=ExtResource("9_meiaf")]
+enemy_manager = NodePath("../EnemyManager")
+map = NodePath("../MapPCG")
 
-[node name="HUD" parent="CanvasLayer" unique_id=631673634 instance=ExtResource("4_3dryh")]
+[node name="HUDLayer" type="CanvasLayer" parent="." unique_id=1264046463]
+
+[node name="HUD" parent="HUDLayer" unique_id=631673634 instance=ExtResource("4_3dryh")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1892677566]
+color = Color(0.49411765, 0.29803923, 0.4117647, 1)
+script = ExtResource("10_6y3i1")
+map_colors = Array[Color]([Color(0.4, 0.5882353, 0.7294118, 1), Color(0.8901961, 0.8901961, 0.54509807, 1), Color(0.9098039, 0.6431373, 0.3254902, 1), Color(0.49411765, 0.29803923, 0.4117647, 1), Color(0.49411765, 0.29803923, 0.4117647, 1)])
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2005631221]
+environment = SubResource("Environment_meiaf")

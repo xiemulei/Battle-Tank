@@ -29,6 +29,9 @@
 [ext_resource type="Texture2D" uid="uid://bxgfb6kq8j7tg" path="res://assets/VFX/sonic_explosion/sonicExplosion07.png" id="27_6dyyy"]
 [ext_resource type="Texture2D" uid="uid://b0c8qpkrhfcx5" path="res://assets/VFX/sonic_explosion/sonicExplosion08.png" id="28_cio4m"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aqtgb"]
+light_mode = 1
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_mta6e"]
 animations = [{
 "frames": [{
@@ -132,5 +135,7 @@ animations = [{
 }]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=569371109]
+modulate = Color(1.5, 1.5, 1.5, 1)
+material = SubResource("CanvasItemMaterial_aqtgb")
 sprite_frames = SubResource("SpriteFrames_mta6e")
 animation = &"sonic_exp"

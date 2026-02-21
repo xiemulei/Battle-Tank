@@ -17,12 +17,15 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 [autoload]
 
 Gamemanager="*uid://iyfh4e1wk41q"
+SoundManager="*uid://dpb4nak3etrox"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://hekk1ft2k5oj"
+mouse_cursor/custom_image_hotspot=Vector2(32, 32)
 
 [global_group]
 
@@ -79,3 +82,4 @@ shoot={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+viewport/hdr_2d=true
