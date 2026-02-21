@@ -2,7 +2,6 @@ class_name EnemyTank
 extends CharacterBody2D
 
 @export var map: Node2D
-@export var points: Node2D
 @export var speed: float = 100
 @onready var weapon_component: WeaponComponent = $WeaponComponent
 @onready var hurt_box_component: HurtBoxComponent = $HurtBoxComponent

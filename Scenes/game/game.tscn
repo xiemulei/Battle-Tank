@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://4sx5g46guks0" path="res://Scenes/manager/enemy_manager.tscn" id="5_7trcl"]
 [ext_resource type="PackedScene" uid="uid://c8jqxgrn78b52" path="res://Scenes/enemy/enemy_mis_vehicle.tscn" id="5_d0b77"]
 [ext_resource type="PackedScene" uid="uid://dhpo25h4obi2p" path="res://Scenes/manager/vfx_manager.tscn" id="5_i6g32"]
+[ext_resource type="PackedScene" uid="uid://did6lx4n3irxo" path="res://Scenes/enemy/enemy_tank.tscn" id="5_nds08"]
 [ext_resource type="PackedScene" uid="uid://c1klh4udsby6r" path="res://Scenes/manager/pickup_manager.tscn" id="6_nds08"]
 [ext_resource type="PackedScene" uid="uid://bqdjnt3wu4ua7" path="res://Scenes/enemy/enemy_tower.tscn" id="7_nds08"]
 
@@ -35,6 +36,7 @@ points = NodePath("../Points")
 [node name="Enemies" type="Node2D" parent="." unique_id=1022295085]
 
 [node name="EnemyManager" parent="." unique_id=455659908 node_paths=PackedStringArray("map", "enemies_holder") instance=ExtResource("5_7trcl")]
+enemy_tank_scene = ExtResource("5_nds08")
 enemy_mis_scene = ExtResource("5_d0b77")
 enemy_tower_scene = ExtResource("7_nds08")
 map = NodePath("../MapPCG")

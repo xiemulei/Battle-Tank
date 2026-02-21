@@ -139,13 +139,13 @@ func setup_trees(item_num: int = 5):
 	for i in range(item_num):
 		set_item(tree, 0.5, brown_tree_id, [brown_tree_atlas], false)
 
-func get_patrol_points(patrol_num: int = 5) -> Array[Vector2i]:
-	var patrol_points: Array[Vector2i]
+func get_patrol_points(patrol_num: int = 5) -> Array:
+	var patrol_points: Array
 	var road_cells = road.get_used_cells()
 	for i in range(patrol_num):
 		var pick_point = road_cells.pick_random()
 		road_cells.erase(pick_point)
-		patrol_points.append(pick_point)
+		patrol_points.append(road.map_to_local(pick_point))
 	return patrol_points
 
 func get_tower_points(tower_num: int = 8, max_try: int = 100):

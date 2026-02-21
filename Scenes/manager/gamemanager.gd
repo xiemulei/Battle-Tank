@@ -13,6 +13,7 @@ var total_enemy_size: int
 
 func _ready() -> void:
 	score_update.connect(on_score_update)
+	player_killed.connect(on_player_killed)
 
 func set_total_enemy_size(value: int):
 	total_enemy_size = value
@@ -20,7 +21,10 @@ func set_total_enemy_size(value: int):
 func on_score_update():
 	score += 1
 	update_score_ui.emit(score, total_enemy_size)
-	
+
+func on_player_killed():
+	pass
+
 func restart():
 	score = 0
 	get_tree().reload_current_scene()

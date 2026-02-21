@@ -60,7 +60,7 @@ func check_enemy_size():
 
 func spawn_waves():
 	for i in wave_number:
-		await spawn_wave()
+		spawn_wave()
 		await wave_died
 
 func spawn_wave():
