@@ -14,6 +14,11 @@ func _ready() -> void:
 	if initial_state:
 		initial_state.enter()
 		current_state = initial_state
+	
+	# 等待导航服务就绪
+	set_physics_process(false)
+	await  get_tree().create_timer(0.1).timeout
+	set_physics_process(true)
 
 func on_child_transition(state: State, new_state_name: StringName):
 	if state != current_state:

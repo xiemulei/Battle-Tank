@@ -14,7 +14,7 @@
 [node name="Map" parent="." unique_id=1846740082 instance=ExtResource("1_wrm1d")]
 
 [node name="Player" parent="." unique_id=1139137400 instance=ExtResource("2_3dryh")]
-position = Vector2(1359, 528)
+position = Vector2(1683, 1142)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1022295085]
 
@@ -33,10 +33,10 @@ points = NodePath("../../Points")
 [node name="Points" type="Node2D" parent="." unique_id=1909502906]
 
 [node name="Marker2D" type="Marker2D" parent="Points" unique_id=1632175040]
-position = Vector2(1511, 295)
+position = Vector2(930, 347)
 
 [node name="Marker2D2" type="Marker2D" parent="Points" unique_id=1855711863]
-position = Vector2(1513, 728)
+position = Vector2(801, 992)
 
 [node name="Marker2D3" type="Marker2D" parent="Points" unique_id=692696117]
 position = Vector2(2459, 788)

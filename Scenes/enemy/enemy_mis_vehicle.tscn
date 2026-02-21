@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dv2d7nfo8hlb4" path="res://Scenes/Object/enemy_missile.tscn" id="3_llnbk"]
 [ext_resource type="PackedScene" uid="uid://cmm3vnvmo024w" path="res://Scenes/components/hurt_box_component.tscn" id="4_klha5"]
 [ext_resource type="PackedScene" uid="uid://bxdatmx1sjay1" path="res://Scenes/components/detect_component.tscn" id="5_miqdp"]
-[ext_resource type="PackedScene" uid="uid://biads0oe6unmq" path="res://Scenes/components/avoid_component.tscn" id="6_oepsf"]
 [ext_resource type="PackedScene" uid="uid://mxmeqt3644h1" path="res://Scenes/components/health_component.tscn" id="7_5ykc7"]
 [ext_resource type="PackedScene" uid="uid://dmycqa5kh8jcr" path="res://Scenes/components/trail_component.tscn" id="8_5eobh"]
 [ext_resource type="PackedScene" uid="uid://c6vnj2ymblnsh" path="res://Scenes/enemy/state_machine.tscn" id="9_epdtr"]
@@ -91,8 +90,6 @@ material = ExtResource("2_llnbk")
 use_parent_material = true
 shape = SubResource("CircleShape2D_2d0kk")
 
-[node name="AvoidComponent" parent="." unique_id=491454486 instance=ExtResource("6_oepsf")]
-
 [node name="HealthComponent" parent="." unique_id=1451598291 instance=ExtResource("7_5ykc7")]
 
 [node name="TrailComponent" parent="." unique_id=1878480963 instance=ExtResource("8_5eobh")]
@@ -100,8 +97,9 @@ shape = SubResource("CircleShape2D_2d0kk")
 [node name="StateMachine" parent="." unique_id=2034542311 node_paths=PackedStringArray("initial_state") instance=ExtResource("9_epdtr")]
 initial_state = NodePath("EnemyPatrol")
 
-[node name="EnemyPatrol" parent="StateMachine" unique_id=523067653 node_paths=PackedStringArray("enemy", "search_component") instance=ExtResource("10_54ilr")]
+[node name="EnemyPatrol" parent="StateMachine" unique_id=523067653 node_paths=PackedStringArray("enemy", "nav_agent", "search_component") instance=ExtResource("10_54ilr")]
 enemy = NodePath("../..")
+nav_agent = NodePath("../../NavigationAgent2D")
 search_component = NodePath("../../DetectComponent")
 
 [node name="EnemyWander" parent="StateMachine" unique_id=346653257 node_paths=PackedStringArray("enemy", "search_component") instance=ExtResource("11_5idi4")]
@@ -115,3 +113,9 @@ weapon_component = NodePath("../../MisLaunchComponent")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=989786698]
 libraries/ = SubResource("AnimationLibrary_oepsf")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1861799920]
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 40.0
+debug_enabled = true
