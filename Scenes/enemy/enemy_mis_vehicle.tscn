@@ -115,6 +115,7 @@ weapon_component = NodePath("../../MisLaunchComponent")
 libraries/ = SubResource("AnimationLibrary_oepsf")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1861799920]
+navigation_layers = 2
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 40.0

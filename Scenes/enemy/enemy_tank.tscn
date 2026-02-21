@@ -115,6 +115,7 @@ enemy = NodePath("../..")
 search_component = NodePath("../../SearchComponent")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=705807034]
+navigation_layers = 2
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 40.0

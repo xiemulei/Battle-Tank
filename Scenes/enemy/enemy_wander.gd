@@ -27,7 +27,7 @@ func physics_update(_delta: float):
 		transitioned.emit(self, "EnemyAttack")
 	else:
 		if not end_wander:
-			enemy.update_direction(target_pos)
+			enemy.set_nav_to_target(target_pos)
 			enemy.update_nav()
 			if enemy.navigation_agent_2d.is_target_reached():
 				find_next_point()

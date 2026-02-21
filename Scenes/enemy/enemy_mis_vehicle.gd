@@ -50,13 +50,13 @@ func update_nav():
 		update_direction(next_pos)
 		var new_velocity = transform.x * speed
 		if navigation_agent_2d.avoidance_enabled:
-			navigation_agent_2d.set_velocity_forced(new_velocity)
+			navigation_agent_2d.set_velocity(new_velocity)
 		else:
 			velocity = new_velocity
 		move_and_slide()
 
 func stop():
 	if navigation_agent_2d.avoidance_enabled	:
-		navigation_agent_2d.set_velocity_forced(Vector2.ZERO)
+		navigation_agent_2d.set_velocity(Vector2.ZERO)
 	else:
 		velocity = Vector2.ZERO

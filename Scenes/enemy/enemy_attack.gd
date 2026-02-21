@@ -14,7 +14,7 @@ func set_nav_layer():
 	enemy.navigation_agent_2d.set_navigation_layer_value(1,true)
 	enemy.navigation_agent_2d.set_navigation_layer_value(2,false)
 
-func _physics_process(_delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	if search_component.can_see_player():
 		target_pos = search_component.player_ref.global_position
 		if enemy.global_position.distance_to(target_pos) > min_dist:

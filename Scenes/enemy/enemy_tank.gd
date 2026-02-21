@@ -9,7 +9,6 @@ extends CharacterBody2D
 @onready var trail_component: Node2D = $TrailComponent
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var search_component: SearchComponent = $SearchComponent
-@onready var avoid_component: AvoidComponent = $AvoidComponent
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
 var cur_pos: Vector2
@@ -52,13 +51,13 @@ func update_nav():
 		update_direction(next_pos)
 		var new_velocity = transform.x * speed
 		if navigation_agent_2d.avoidance_enabled:
-			navigation_agent_2d.set_velocity_forced(new_velocity)
+			navigation_agent_2d.set_velocity(new_velocity)
 		else:
 			velocity = new_velocity
 		move_and_slide()
 
 func stop():
 	if navigation_agent_2d.avoidance_enabled	:
-		navigation_agent_2d.set_velocity_forced(Vector2.ZERO)
+		navigation_agent_2d.set_velocity(Vector2.ZERO)
 	else:
 		velocity = Vector2.ZERO
