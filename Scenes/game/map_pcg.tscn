@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dk14hmiuhv5iy"]
+
+[ext_resource type="TileSet" uid="uid://db8rqng208wte" path="res://assets/tileset/map.tres" id="1_pupe0"]
+[ext_resource type="Script" uid="uid://bqh23yj76uvqj" path="res://Scenes/game/map_pcg.gd" id="1_s0k3k"]
+
+[node name="MapPCG" type="Node2D" unique_id=1846740082]
+script = ExtResource("1_s0k3k")
+
+[node name="Grass" type="TileMapLayer" parent="." unique_id=1873503038]
+tile_set = ExtResource("1_pupe0")
+
+[node name="Road" type="TileMapLayer" parent="." unique_id=201393642]
+tile_set = ExtResource("1_pupe0")
+
+[node name="Border" type="TileMapLayer" parent="." unique_id=1091552861]
+tile_set = ExtResource("1_pupe0")
+
+[node name="Items" type="TileMapLayer" parent="." unique_id=577051636]
+tile_set = ExtResource("1_pupe0")
+
+[node name="Tree" type="TileMapLayer" parent="." unique_id=506080779]
+tile_set = ExtResource("1_pupe0")

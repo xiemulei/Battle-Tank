@@ -77,8 +77,6 @@ collision_layer = 8
 shape = SubResource("CircleShape2D_g4g2l")
 
 [node name="DetectComponent" parent="." unique_id=174737966 instance=ExtResource("4_hatmb")]
-collision_layer = 0
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectComponent" unique_id=90228244]
 shape = SubResource("CircleShape2D_kfvdq")

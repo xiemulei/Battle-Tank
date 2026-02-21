@@ -11,8 +11,7 @@ func _ready() -> void:
 	get_patrol_points()
 
 func get_patrol_points():
-	for point in enemy.points.get_children():
-		patrol_points.append(point.global_position)
+	patrol_points = enemy.map.get_patrol_points()
 
 func enter():
 	get_next_patrol_point()

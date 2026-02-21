@@ -5,7 +5,9 @@ var direction: Vector2 = Vector2.ZERO
 var speed: float = 0
 var can_shake := false
 
+@export var points: Node2D
 @export var max_speed: float = 300
+
 @onready var engine_sound: AudioStreamPlayer = $EngineSound
 @onready var weapon_component: WeaponComponent = $WeaponComponent
 @onready var trail_component: Node2D = $TrailComponent
@@ -17,12 +19,16 @@ var can_shake := false
 
 
 func _ready() -> void:
+	set_pos()
 	hurt_box_component.get_damage.connect(health_component.get_damage)
 	hurt_box_component.get_damage.connect(on_get_damage)
 	health_component.health_changed.connect(on_health_changed)
 	health_component.died.connect(on_died)
 	Gamemanager.player_win.connect(on_player_win)
 	timer.timeout.connect(on_time_out)
+
+func set_pos():
+	global_position = points.get_node("PlayerStart").global_position
 
 func on_get_damage(_value):
 	animation_player.play("flash")

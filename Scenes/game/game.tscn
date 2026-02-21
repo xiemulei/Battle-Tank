@@ -1,45 +1,49 @@
 [gd_scene format=3 uid="uid://bc0iv372mkxqx"]
 
-[ext_resource type="PackedScene" uid="uid://dk14hmiuhv5iy" path="res://Scenes/game/map.tscn" id="1_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://dk14hmiuhv5iy" path="res://Scenes/game/map_pcg.tscn" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://biihvbxh372vq" path="res://Scenes/player/player.tscn" id="2_3dryh"]
 [ext_resource type="PackedScene" uid="uid://cb656hnl7mta0" path="res://Scenes/UI/hud.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://4sx5g46guks0" path="res://Scenes/manager/enemy_manager.tscn" id="5_7trcl"]
 [ext_resource type="PackedScene" uid="uid://c8jqxgrn78b52" path="res://Scenes/enemy/enemy_mis_vehicle.tscn" id="5_d0b77"]
 [ext_resource type="PackedScene" uid="uid://dhpo25h4obi2p" path="res://Scenes/manager/vfx_manager.tscn" id="5_i6g32"]
-[ext_resource type="PackedScene" uid="uid://did6lx4n3irxo" path="res://Scenes/enemy/enemy_tank.tscn" id="5_nds08"]
+[ext_resource type="PackedScene" uid="uid://c1klh4udsby6r" path="res://Scenes/manager/pickup_manager.tscn" id="6_nds08"]
+[ext_resource type="PackedScene" uid="uid://bqdjnt3wu4ua7" path="res://Scenes/enemy/enemy_tower.tscn" id="7_nds08"]
 
 [node name="Game" type="Node2D" unique_id=54073917]
 
-[node name="VFXManager" parent="." unique_id=1324291216 instance=ExtResource("5_i6g32")]
+[node name="Points" type="Node2D" parent="." unique_id=1909502906]
 
-[node name="Map" parent="." unique_id=1846740082 instance=ExtResource("1_wrm1d")]
+[node name="EnemyStart" type="Marker2D" parent="Points" unique_id=1632175040]
+position = Vector2(90, 536)
 
-[node name="Player" parent="." unique_id=1139137400 instance=ExtResource("2_3dryh")]
+[node name="PlayerStart" type="Marker2D" parent="Points" unique_id=1855711863]
+position = Vector2(2830, 546)
+
+[node name="TopLeft" type="Marker2D" parent="Points" unique_id=692696117]
+position = Vector2(300, 159)
+
+[node name="BottomRight" type="Marker2D" parent="Points" unique_id=1604597018]
+position = Vector2(2539, 1251)
+
+[node name="MapPCG" parent="." unique_id=1846740082 node_paths=PackedStringArray("points") instance=ExtResource("1_wrm1d")]
+points = NodePath("../Points")
+
+[node name="Player" parent="." unique_id=1139137400 node_paths=PackedStringArray("points") instance=ExtResource("2_3dryh")]
 position = Vector2(1683, 1142)
+points = NodePath("../Points")
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1022295085]
 
-[node name="EnemyTank" parent="Enemies" unique_id=1137593794 node_paths=PackedStringArray("points") instance=ExtResource("5_nds08")]
-position = Vector2(2316, 283)
-points = NodePath("../../Points")
+[node name="EnemyManager" parent="." unique_id=455659908 node_paths=PackedStringArray("map", "enemies_holder") instance=ExtResource("5_7trcl")]
+enemy_mis_scene = ExtResource("5_d0b77")
+enemy_tower_scene = ExtResource("7_nds08")
+map = NodePath("../MapPCG")
+enemies_holder = NodePath("../Enemies")
 
-[node name="EnemyMisVehicle" parent="Enemies" unique_id=1559705068 node_paths=PackedStringArray("points") instance=ExtResource("5_d0b77")]
-position = Vector2(2467, 637)
-points = NodePath("../../Points")
+[node name="PickupManager" parent="." unique_id=2019116312 instance=ExtResource("6_nds08")]
+
+[node name="VFXManager" parent="." unique_id=1324291216 instance=ExtResource("5_i6g32")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1264046463]
 
 [node name="HUD" parent="CanvasLayer" unique_id=631673634 instance=ExtResource("4_3dryh")]
-
-[node name="Points" type="Node2D" parent="." unique_id=1909502906]
-
-[node name="Marker2D" type="Marker2D" parent="Points" unique_id=1632175040]
-position = Vector2(930, 347)
-
-[node name="Marker2D2" type="Marker2D" parent="Points" unique_id=1855711863]
-position = Vector2(801, 992)
-
-[node name="Marker2D3" type="Marker2D" parent="Points" unique_id=692696117]
-position = Vector2(2459, 788)
-
-[node name="Marker2D4" type="Marker2D" parent="Points" unique_id=1604597018]
-position = Vector2(2453, 299)
