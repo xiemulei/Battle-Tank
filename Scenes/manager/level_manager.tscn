@@ -46,6 +46,7 @@ process_mode = 3
 script = ExtResource("1_3hhxu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=935169873]
+process_mode = 3
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=254915658]
 layout_mode = 3
@@ -97,6 +98,7 @@ theme_override_font_sizes/font_size = 30
 text = "Continue"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/ContinuePanel/VBoxContainer" unique_id=1763045285]
+process_mode = 3
 libraries/ = SubResource("AnimationLibrary_3hhxu")
 
 [node name="WinPanel" type="PanelContainer" parent="CanvasLayer/Control" unique_id=1517023729]
@@ -176,3 +178,4 @@ theme_override_font_sizes/font_size = 30
 text = "Back Menu"
 
 [node name="Timer" type="Timer" parent="." unique_id=1288966780]
+one_shot = true

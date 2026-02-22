@@ -35,11 +35,20 @@ position = Vector2(2539, 1251)
 [node name="MapPCG" parent="." unique_id=1846740082 node_paths=PackedStringArray("points") instance=ExtResource("1_wrm1d")]
 points = NodePath("../Points")
 
-[node name="Player" parent="." unique_id=1139137400 node_paths=PackedStringArray("points") instance=ExtResource("2_3dryh")]
+[node name="Player" parent="." unique_id=1139137400 node_paths=PackedStringArray("points", "map") instance=ExtResource("2_3dryh")]
 position = Vector2(1683, 1142)
 points = NodePath("../Points")
+map = NodePath("../MapPCG")
 
 [node name="EnemyHolder" type="Node2D" parent="." unique_id=1022295085]
+
+[node name="HUDLayer" type="CanvasLayer" parent="." unique_id=1264046463]
+
+[node name="HUD" parent="HUDLayer" unique_id=631673634 instance=ExtResource("4_3dryh")]
+
+[node name="VFXManager" parent="." unique_id=1324291216 instance=ExtResource("5_i6g32")]
+
+[node name="PickupManager" parent="." unique_id=2019116312 instance=ExtResource("6_nds08")]
 
 [node name="EnemyManager" parent="." unique_id=455659908 node_paths=PackedStringArray("map", "enemies_holder") instance=ExtResource("5_7trcl")]
 enemy_tank_scene = ExtResource("5_nds08")
@@ -48,17 +57,9 @@ enemy_tower_scene = ExtResource("7_nds08")
 map = NodePath("../MapPCG")
 enemies_holder = NodePath("../EnemyHolder")
 
-[node name="PickupManager" parent="." unique_id=2019116312 instance=ExtResource("6_nds08")]
-
-[node name="VFXManager" parent="." unique_id=1324291216 instance=ExtResource("5_i6g32")]
-
 [node name="LevelManager" parent="." unique_id=1587243390 node_paths=PackedStringArray("enemy_manager", "map") instance=ExtResource("9_meiaf")]
 enemy_manager = NodePath("../EnemyManager")
 map = NodePath("../MapPCG")
-
-[node name="HUDLayer" type="CanvasLayer" parent="." unique_id=1264046463]
-
-[node name="HUD" parent="HUDLayer" unique_id=631673634 instance=ExtResource("4_3dryh")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1892677566]
 color = Color(0.49411765, 0.29803923, 0.4117647, 1)

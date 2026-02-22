@@ -35,7 +35,7 @@ func on_entity_died(_pos: Vector2, groups: Array):
 func on_level_start():
 	wave_number = Gamemanager.current_level + 1
 	enemy_in_wave = Gamemanager.current_level + 3
-	spawn_wave()
+	spawn_waves()
 
 func spawn_tower():
 	for point in tower_points:

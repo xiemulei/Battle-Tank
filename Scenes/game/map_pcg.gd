@@ -9,6 +9,8 @@ extends Node2D
 @export var map_size = Vector2i(45, 22)
 @export var points: Node2D
 @export var path_point_count: int = 5
+@export var stone_count: int = 10
+@export var tree_count: int = 10
 
 const grass_id: int = 0
 const nav_grass_atlas := Vector2i(0, 0)
@@ -45,8 +47,8 @@ func _ready() -> void:
 	setup_pathgenerator()
 	get_random_path()
 	setup_free_cell()
-	setup_stones()
-	setup_trees()
+	setup_stones(stone_count)
+	setup_trees(tree_count)
 
 func setup_astargrid():
 	astargrid.region = grass.get_used_rect()
@@ -131,7 +133,7 @@ func set_item(tile: TileMapLayer, prob: float, item_id: int, item_atlas: Array, 
 			if cannot_nav:
 				grass.set_cell(near_cell, grass_id, nonav_grass_atlas)
 			tile.set_cell(near_cell, item_id, item_atlas.pick_random())
-			free_cell.erase(cell)
+			free_cell.erase(near_cell)
 
 func setup_stones(item_num: int = 8):
 	for i in range(item_num):

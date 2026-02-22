@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d2nqa21nvflb8" path="res://assets/enemy/towerDefense_tile204.png" id="1_ruy3b"]
 [ext_resource type="Script" uid="uid://d2hlurtvlqlxl" path="res://Scenes/components/mis_launch_component.gd" id="1_s8ghq"]
-[ext_resource type="AudioStream" uid="uid://bs7c2ldq7lfy4" path="res://assets/sound/rocket.ogg" id="2_s8ghq"]
+[ext_resource type="AudioStream" uid="uid://sqrix4kv62fo" path="res://assets/sound/rocket.ogg" id="2_s8ghq"]
 
 [node name="MisLaunchComponent" type="Node2D" unique_id=33964307]
 script = ExtResource("1_s8ghq")

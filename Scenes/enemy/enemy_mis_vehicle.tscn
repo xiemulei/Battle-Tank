@@ -60,7 +60,7 @@ _data = {
 &"flash": SubResource("Animation_miqdp")
 }
 
-[node name="EnemyMisVehicle" type="CharacterBody2D" unique_id=1559705068 groups=["Enemy", "EnemyMissile"]]
+[node name="EnemyMisVehicle" type="CharacterBody2D" unique_id=1559705068 groups=["Enemy", "EnemyTank"]]
 material = ExtResource("2_llnbk")
 use_parent_material = true
 collision_layer = 64

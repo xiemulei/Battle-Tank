@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bxdatmx1sjay1" path="res://Scenes/components/detect_component.tscn" id="4_hatmb"]
 [ext_resource type="PackedScene" uid="uid://bdjbuh6lqsawj" path="res://Scenes/Object/enemy_bullet.tscn" id="5_hatmb"]
 [ext_resource type="PackedScene" uid="uid://mxmeqt3644h1" path="res://Scenes/components/health_component.tscn" id="5_w5xwb"]
+[ext_resource type="Texture2D" uid="uid://dyomnsre8bo4k" path="res://assets/enemy/towerDefense_tile249.png" id="6_42xqv"]
 [ext_resource type="Texture2D" uid="uid://bt4tme4fhro5o" path="res://assets/VFX/spotlight_1.png" id="9_w5xwb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k2ns5"]
@@ -71,6 +72,9 @@ shape = SubResource("CircleShape2D_k2ns5")
 [node name="WeaponComponent" parent="." unique_id=963348630 instance=ExtResource("2_fmgma")]
 bullet_scene = ExtResource("5_hatmb")
 
+[node name="Gun" parent="WeaponComponent" index="0" unique_id=445025231]
+texture = ExtResource("6_42xqv")
+
 [node name="HurtBoxComponent" parent="." unique_id=1715346458 instance=ExtResource("3_one6r")]
 collision_layer = 8
 
@@ -94,3 +98,5 @@ shadow_filter = 1
 shadow_filter_smooth = 1.0
 texture = ExtResource("9_w5xwb")
 texture_scale = 2.0
+
+[editable path="WeaponComponent"]

@@ -51,7 +51,7 @@ func on_continue_pressed():
 	continue_panel.hide()
 	control.hide()
 	start_level()
-	SoundManager.player_click()
+	SoundManager.play_click()
 
 func on_player_killed():
 	timer.start()
@@ -69,7 +69,7 @@ func on_win_pressed():
 	control.hide()
 	win_panel.hide()
 	next_level()
-	SoundManager.player_click()
+	SoundManager.play_click()
 
 func next_level():
 	Gamemanager.next_level()
@@ -78,4 +78,4 @@ func next_level():
 
 func on_loss_pressed():
 	Gamemanager.to_menu()
-	SoundManager.player_click()
+	SoundManager.play_click()

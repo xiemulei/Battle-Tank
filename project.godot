@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Tank_Game"
-run/main_scene="uid://bc0iv372mkxqx"
+run/main_scene="uid://dxlsr8ii4wg82"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]

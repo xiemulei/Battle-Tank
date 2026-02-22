@@ -16,7 +16,7 @@ height = 36.0
 
 [node name="EnemyMissile" unique_id=243783296 groups=["EnemyMissile"] instance=ExtResource("1_h1qbv")]
 script = ExtResource("2_e0ua0")
-speed = null
+speed = 300.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=520246120]
 rotation = 0.0
